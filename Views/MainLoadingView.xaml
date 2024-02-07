@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:WeatherWise.ViewModels"
+             x:DataType="vm:MainLoadingViewModel"
+             x:Class="WeatherWise.Views.MainLoadingView"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout
+            HeightRequest="80"
+            WidthRequest="130"
+            VerticalOptions="Center">
+
+            <ActivityIndicator HeightRequest="50" IsRunning="true"></ActivityIndicator>
+
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

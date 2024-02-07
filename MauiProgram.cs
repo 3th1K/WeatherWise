@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using WeatherWise.ViewModels;
+using WeatherWise.Views;
 
 namespace WeatherWise
 {
@@ -18,7 +20,10 @@ namespace WeatherWise
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
+            //dependency
+            builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
+            builder.Services.AddSingleton<MainLoadingView>();
+            builder.Services.AddSingleton<MainLoadingViewModel>();
             return builder.Build();
         }
     }
