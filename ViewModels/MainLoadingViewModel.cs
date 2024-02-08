@@ -1,12 +1,14 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
+using WeatherWise.Models;
 using WeatherWise.Views;
 
 namespace WeatherWise.ViewModels;
 
 public partial class MainLoadingViewModel : ObservableObject
 {
-    [ObservableProperty] private double latitude;
-    [ObservableProperty] private double longitude;
+    private double Latitude { get; set; }
+    private double Longitude { get; set; }
     private readonly IGeolocation _geolocation;
     public MainLoadingViewModel(IGeolocation geolocation)
     {
@@ -20,14 +22,17 @@ public partial class MainLoadingViewModel : ObservableObject
             Location? location = await _geolocation.GetLastKnownLocationAsync();
             if (location == null)
             {
+                Debug.WriteLine($"Fetching Geo Coordinates");
                 location = await _geolocation.GetLocationAsync(new GeolocationRequest()
                 {
                     DesiredAccuracy = GeolocationAccuracy.Medium,
                     Timeout = TimeSpan.FromSeconds(30)
                 });
             }
+            Debug.WriteLine($"Geo Coordinates Acquired");
             Latitude = location.Latitude;
             Longitude = location.Longitude;
+            Debug.WriteLine($"Latitude : {Latitude}\nLongitude : {Longitude}");
             await Shell.Current.GoToAsync(nameof(MainWeatherView), true, new Dictionary<string, object>()
             {
                 {"Latitude", Latitude},
@@ -36,9 +41,8 @@ public partial class MainLoadingViewModel : ObservableObject
         }
         catch (Exception ex)
         {
-            //
+            Debug.Fail($"Exception : {ex.Message}");
         }
     }
 
 }
-
