@@ -4,19 +4,210 @@
              xmlns:vm ="clr-namespace:WeatherWise.ViewModels"
              x:DataType="vm:MainWeatherViewModel"
              x:Class="WeatherWise.Views.MainWeatherView"
-             Title="MainWeatherView">
-    <VerticalStackLayout>
-        <Label 
-            Text="this is weather app"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="{Binding Latitude}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="{Binding Longitude}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Shell.NavBarIsVisible="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#191970" Offset="0"/>
+                    <GradientStop Color="#64B5F6" Offset="1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+            <VerticalStackLayout>
+                <Label Text="{Binding Location}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+            </VerticalStackLayout>
+            
+        </Frame>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Fill with your content -->
+            <Frame Grid.Column="0" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FF5722" Offset="0"/>
+                        <GradientStop Color="#FFC107" Offset="1"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Label Text="1/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+            </Frame>
+            <Frame Grid.Column="1" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#4CAF50" Offset="0"/>
+                        <GradientStop Color="#CDDC39" Offset="1"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Label Text="2/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+            </Frame>
+            <Frame Grid.Column="2" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FF5722" Offset="0"/>
+                        <GradientStop Color="#FFC107" Offset="1"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Label Text="3/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+            </Frame>
+            <Frame Grid.Column="3" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#4CAF50" Offset="0"/>
+                        <GradientStop Color="#CDDC39" Offset="1"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Label Text="4/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+            </Frame>
+            <Frame Grid.Column="4" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FF5722" Offset="0"/>
+                        <GradientStop Color="#FFC107" Offset="1"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Label Text="5/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+            </Frame>
+            <Frame Grid.Column="5" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#4CAF50" Offset="0"/>
+                        <GradientStop Color="#CDDC39" Offset="1"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Label Text="6/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+            </Frame>
+            <Frame Grid.Column="6" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FF5722" Offset="0"/>
+                        <GradientStop Color="#FFC107" Offset="1"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Label Text="7/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+            </Frame>
+            <!-- Add more frames for additional content -->
+        </Grid>
+
+        <!-- Add more frames for additional content -->
+
+        <Frame Grid.Row="2" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0B8ECB" Offset="0"/>
+                    <GradientStop Color="#31EAB2" Offset="1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+            <Label Text="18*C" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+        </Frame>
+
+        <Frame Grid.Row="3" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#BC35E0" Offset="0"/>
+                    <GradientStop Color="#E9AFF9" Offset="1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+
+            <ScrollView Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="5">
+                    <Frame CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" MinimumWidthRequest="80">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FF5722" Offset="0"/>
+                                <GradientStop Color="#FFC107" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Label Text="00" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                    </Frame>
+                    <Frame CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" MinimumWidthRequest="80">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FF5722" Offset="0"/>
+                                <GradientStop Color="#FFC107" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Label Text="00" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                    </Frame>
+                    <Frame CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" MinimumWidthRequest="80">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FF5722" Offset="0"/>
+                                <GradientStop Color="#FFC107" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Label Text="00" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                    </Frame>
+                    <Frame CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" MinimumWidthRequest="80">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FF5722" Offset="0"/>
+                                <GradientStop Color="#FFC107" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Label Text="00" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                    </Frame>
+                    <Frame CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" MinimumWidthRequest="80">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FF5722" Offset="0"/>
+                                <GradientStop Color="#FFC107" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Label Text="00" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                    </Frame>
+                    <Frame CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" MinimumWidthRequest="80">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FF5722" Offset="0"/>
+                                <GradientStop Color="#FFC107" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Label Text="00" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                    </Frame>
+                    <Frame CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" MinimumWidthRequest="80">
+                        <Frame.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FF5722" Offset="0"/>
+                                <GradientStop Color="#FFC107" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <Label Text="00" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+                    </Frame>
+                </StackLayout>
+                
+                
+            </ScrollView>
+        </Frame>
+
+
+
+        <Frame Grid.Row="4" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#B9A902" Offset="0"/>
+                    <GradientStop Color="#F3E876" Offset="1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
+
+        <!-- Add more frames for additional content -->
+    </Grid>
+
+
 </ContentPage>

@@ -9,4 +9,9 @@ public partial class MainWeatherView : ContentPage
 		InitializeComponent();
         BindingContext = viewModel;
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+    }
 }
