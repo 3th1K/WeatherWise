@@ -25,6 +25,9 @@ namespace WeatherWise
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            //automapper dependency
+            builder.Services.AddAutoMapper(typeof(AutomapperProfile));
             //geolocation dependency
             builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
 
@@ -33,8 +36,8 @@ namespace WeatherWise
             builder.Services.AddSingleton<MainWeatherView>();
 
             //model dependency
-            builder.Services.AddSingleton<MainWeatherModel>();
-            builder.Services.AddSingleton<MainGeolocationModel>();
+            builder.Services.AddSingleton<CurrentWeatherModel>();
+            builder.Services.AddSingleton<CurrentGeolocationModel>();
 
             //view model dependency
             builder.Services.AddSingleton<MainLoadingViewModel>();

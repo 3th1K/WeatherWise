@@ -33,10 +33,15 @@ public partial class MainLoadingViewModel : ObservableObject
             Latitude = location.Latitude;
             Longitude = location.Longitude;
             Debug.WriteLine($"Latitude : {Latitude}\nLongitude : {Longitude}");
+            //await Shell.Current.GoToAsync(nameof(MainWeatherView), true, new Dictionary<string, object>()
+            //{
+            //    {"Latitude", Latitude},
+            //    {"Longitude", Longitude}
+            //});
             await Shell.Current.GoToAsync(nameof(MainWeatherView), true, new Dictionary<string, object>()
             {
-                {"Latitude", Latitude},
-                {"Longitude", Longitude}
+                {"Latitude", 22.4930602},
+                {"Longitude", 87.95076913504252}
             });
         }
         catch (Exception ex)

@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
+using AutoMapper;
 using WeatherWise.Interfaces;
 using WeatherWise.Models;
 using WeatherWise.Models.OpenWeatherMap;
@@ -16,24 +17,26 @@ class OpenWeatherMapService : IOpenWeatherMapService
 {
     private HttpClient _weatherClient;
     private HttpClient _geolocationClient;
+    private readonly IMapper _mapper;
     private string API_KEY = "8bf8444de5d051019fe60c07a7f9ab11";
 
-    public OpenWeatherMapService(IHttpClientFactory clientFactory)
+    public OpenWeatherMapService(IHttpClientFactory clientFactory, IMapper mapper)
     {
+        _mapper = mapper;
         _weatherClient = clientFactory.CreateClient("OpenWeatherMapApiClient");
         _geolocationClient = clientFactory.CreateClient("OpenWeatherMapGeolocationApiClient");
     }
 
-    public async Task<MainWeatherModel> GetCurrentWeatherAsync(double lat, double lon)
+    public async Task<CurrentWeatherModel> GetCurrentWeatherAsync(double lat, double lon)
     {
         try
         {
-            HttpResponseMessage response = await _weatherClient.GetAsync($"weather?lat={lat}&lon={lon}&appid={API_KEY}");
+            HttpResponseMessage response = await _weatherClient.GetAsync($"weather?lat={lat}&lon={lon}&units=metric&appid={API_KEY}");
             if (response.IsSuccessStatusCode)
             {
                 string responseString = await response.Content.ReadAsStringAsync();
                 CurrentWeatherResponse responseObj = JsonSerializer.Deserialize<CurrentWeatherResponse>(responseString);
-                var x = new MainWeatherModel() { Tempareture = responseObj.Main.Temp };
+                return _mapper.Map<CurrentWeatherModel>(responseObj);
             }
             else
             {
@@ -47,10 +50,10 @@ class OpenWeatherMapService : IOpenWeatherMapService
             //
         }
 
-        return new MainWeatherModel();
+        return new CurrentWeatherModel();
     }
 
-    public async Task<MainGeolocationModel> GetGeolocationAsync(double lat, double lon)
+    public async Task<CurrentGeolocationModel> GetGeolocationAsync(double lat, double lon)
     {
         try
         {
@@ -59,7 +62,7 @@ class OpenWeatherMapService : IOpenWeatherMapService
             {
                 string responseString = await response.Content.ReadAsStringAsync();
                 OpenWeatherMapGeolocationResponse responseObj = JsonSerializer.Deserialize<List<OpenWeatherMapGeolocationResponse>>(responseString)[0];
-                var geolocation = new MainGeolocationModel()
+                var geolocation = new CurrentGeolocationModel()
                 {
                     Latitude = responseObj.Lat,
                     Longitude = responseObj.Lon,
@@ -81,6 +84,6 @@ class OpenWeatherMapService : IOpenWeatherMapService
             Debug.WriteLine(ex.StackTrace);
         }
 
-        return new MainGeolocationModel();
+        return new CurrentGeolocationModel();
     }
 }

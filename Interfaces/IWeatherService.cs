@@ -8,5 +8,5 @@ using WeatherWise.Models;
 namespace WeatherWise.Interfaces;
 public interface IWeatherService
 {
-    Task<MainWeatherModel> GetCurrentWeatherAsync(double lat, double lon);
+    Task<CurrentWeatherModel> GetCurrentWeatherAsync(double lat, double lon);
 }

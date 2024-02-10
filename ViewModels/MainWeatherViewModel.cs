@@ -18,13 +18,13 @@ public partial class MainWeatherViewModel : ObservableObject
     {
         Task.Run(GetWeatherReport);
     }
-    [ObservableProperty] private MainWeatherModel weatherModel;
-    [ObservableProperty] private MainGeolocationModel geolocationModel;
-    partial void OnGeolocationModelChanged(MainGeolocationModel value)
+    [ObservableProperty] private CurrentWeatherModel weatherModel;
+    [ObservableProperty] private CurrentGeolocationModel geolocationModel;
+    partial void OnGeolocationModelChanged(CurrentGeolocationModel value)
     {
         Location = $"{value.Name}, {value.State}, {value.Country}";
     }
-    partial void OnGeolocationModelChanging(MainGeolocationModel value)
+    partial void OnGeolocationModelChanging(CurrentGeolocationModel value)
     {
         Location = "Loading ...";
     }
@@ -33,13 +33,13 @@ public partial class MainWeatherViewModel : ObservableObject
 
 
     public MainWeatherViewModel(
-        MainWeatherModel mainWeatherModel,
+        CurrentWeatherModel currentWeatherModel,
         IOpenWeatherMapService openWeatherMapService,
-        MainGeolocationModel mainGeolocationModel)
+        CurrentGeolocationModel currentGeolocationModel)
     {
-        weatherModel = mainWeatherModel;
+        weatherModel = currentWeatherModel;
         _openWeatherMapService = openWeatherMapService;
-        geolocationModel = mainGeolocationModel;
+        geolocationModel = currentGeolocationModel;
     }
 
     public async void GetWeatherReport()
@@ -47,6 +47,8 @@ public partial class MainWeatherViewModel : ObservableObject
         try
         {
             GeolocationModel = await _openWeatherMapService.GetGeolocationAsync(Latitude, Longitude);
+            WeatherModel =
+                await _openWeatherMapService.GetCurrentWeatherAsync(GeolocationModel.Latitude, GeolocationModel.Longitude);
         }
         catch (Exception ex)
         {

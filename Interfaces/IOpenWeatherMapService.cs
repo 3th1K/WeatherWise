@@ -8,5 +8,5 @@ using WeatherWise.Models;
 namespace WeatherWise.Interfaces;
 public interface IOpenWeatherMapService : IWeatherService
 {
-    Task<MainGeolocationModel> GetGeolocationAsync(double lat, double lon);
+    Task<CurrentGeolocationModel> GetGeolocationAsync(double lat, double lon);
 }
