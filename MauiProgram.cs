@@ -28,11 +28,12 @@ namespace WeatherWise
 
             //automapper dependency
             builder.Services.AddAutoMapper(typeof(AutomapperProfile));
+
             //geolocation dependency
             builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
 
             //views dependency
-            builder.Services.AddSingleton<MainLoadingView>();
+            builder.Services.AddTransient<MainLoadingView>();
             builder.Services.AddSingleton<MainWeatherView>();
 
             //model dependency
@@ -40,7 +41,7 @@ namespace WeatherWise
             builder.Services.AddSingleton<CurrentGeolocationModel>();
 
             //view model dependency
-            builder.Services.AddSingleton<MainLoadingViewModel>();
+            builder.Services.AddTransient<MainLoadingViewModel>();
             builder.Services.AddSingleton<MainWeatherViewModel>();
 
             //api services dependency

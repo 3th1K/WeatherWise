@@ -1,21 +1,21 @@
 ﻿using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
-using WeatherWise.Models;
 using WeatherWise.Views;
 
 namespace WeatherWise.ViewModels;
-
 public partial class MainLoadingViewModel : ObservableObject
 {
     private double Latitude { get; set; }
     private double Longitude { get; set; }
+
     private readonly IGeolocation _geolocation;
     public MainLoadingViewModel(IGeolocation geolocation)
     {
         _geolocation = geolocation;
-        FetchGeoLocation();
+        Task.Run(FetchGeoLocation);
     }
-    private async void FetchGeoLocation()
+
+    public async Task FetchGeoLocation()
     {
         try
         {
@@ -33,15 +33,23 @@ public partial class MainLoadingViewModel : ObservableObject
             Latitude = location.Latitude;
             Longitude = location.Longitude;
             Debug.WriteLine($"Latitude : {Latitude}\nLongitude : {Longitude}");
-            //await Shell.Current.GoToAsync(nameof(MainWeatherView), true, new Dictionary<string, object>()
+
+            //Shell.Current.Dispatcher.Dispatch(async () =>
             //{
-            //    {"Latitude", Latitude},
-            //    {"Longitude", Longitude}
+            //    await Shell.Current.GoToAsync(nameof(MainWeatherView), true, new Dictionary<string, object>()
+            //    {
+            //        {"Latitude", Latitude},
+            //        {"Longitude", Longitude}
+            //    });
             //});
-            await Shell.Current.GoToAsync(nameof(MainWeatherView), true, new Dictionary<string, object>()
+
+            Shell.Current.Dispatcher.Dispatch(async () =>
             {
-                {"Latitude", 22.4930602},
-                {"Longitude", 87.95076913504252}
+                await Shell.Current.GoToAsync(nameof(MainWeatherView), true, new Dictionary<string, object>()
+                {
+                    { "Latitude", 22.4930602 },
+                    { "Longitude", 87.95076913504252 }
+                });
             });
         }
         catch (Exception ex)

@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using WeatherWise.Interfaces;
 using WeatherWise.Models;
 
@@ -13,21 +11,12 @@ public partial class MainWeatherViewModel : ObservableObject
 {
     [ObservableProperty] private double latitude;
     [ObservableProperty] private double longitude;
-    [ObservableProperty] private string location = "Loading ...";
     partial void OnLongitudeChanged(double value)
     {
         Task.Run(GetWeatherReport);
     }
     [ObservableProperty] private CurrentWeatherModel weatherModel;
     [ObservableProperty] private CurrentGeolocationModel geolocationModel;
-    partial void OnGeolocationModelChanged(CurrentGeolocationModel value)
-    {
-        Location = $"{value.Name}, {value.State}, {value.Country}";
-    }
-    partial void OnGeolocationModelChanging(CurrentGeolocationModel value)
-    {
-        Location = "Loading ...";
-    }
 
     private readonly IOpenWeatherMapService _openWeatherMapService;
 

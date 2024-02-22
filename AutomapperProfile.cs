@@ -14,6 +14,7 @@ class AutomapperProfile : Profile
     {
         CreateMap<CurrentWeatherResponse, CurrentWeatherModel>().ConvertUsing(src => new CurrentWeatherModel()
         {
+            CurrentDateTime = DateTimeOffset.FromUnixTimeSeconds(src.Dt).LocalDateTime,
             CurrentTemperature = src.Main.Temp,
             FeelsLike = src.Main.FeelsLike,
             Humidity = src.Main.Humidity,

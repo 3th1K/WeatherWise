@@ -4,6 +4,7 @@ namespace WeatherWise.Models;
 
 public partial class CurrentWeatherModel : ObservableObject
 {
+    [ObservableProperty] private DateTime currentDateTime;
     [ObservableProperty] private double? currentTemperature;
     [ObservableProperty] private string weatherCondition;
     [ObservableProperty] private DateTime sunrise;

@@ -22,14 +22,26 @@
                     <GradientStop Color="#64B5F6" Offset="1"/>
                 </LinearGradientBrush>
             </Frame.Background>
-            <VerticalStackLayout VerticalOptions="Center">
+            <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
                 <Label 
-                    Text="{Binding Location}" 
+                    Text="{Binding GeolocationModel.Name,StringFormat='{0}, '}" 
                     VerticalOptions="Center" 
                     HorizontalOptions="CenterAndExpand" 
                     TextColor="White"
                     FontSize="18"/>
-            </VerticalStackLayout>
+                <Label 
+                    Text="{Binding GeolocationModel.State,StringFormat='{0}, '}" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="CenterAndExpand" 
+                    TextColor="White"
+                    FontSize="18"/>
+                <Label 
+                    Text="{Binding GeolocationModel.Country,StringFormat='{0}'}" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="CenterAndExpand" 
+                    TextColor="White"
+                    FontSize="18"/>
+            </HorizontalStackLayout>
         </Frame>
 
         <Grid Grid.Row="1">
@@ -69,10 +81,14 @@
                                HorizontalOptions="CenterAndExpand" 
                                TextColor="White"
                                FontSize="30"/>
-                        <Label Text="Clear Sky"
+                        <Label Text="{Binding WeatherModel.WeatherCondition}"
                                HorizontalOptions="Center"
                                TextColor="White"
                                FontSize="15"/>
+                        <Label Text="{Binding WeatherModel.CurrentDateTime, StringFormat='{0:dd MMM | hh:mm tt}'}"
+                               HorizontalOptions="Center"
+                               TextColor="White"
+                               FontSize="12"/>
                     </VerticalStackLayout>
                 </Frame>
                 <Frame Grid.Column="1" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">

@@ -14,7 +14,6 @@
 
             <ActivityIndicator HeightRequest="50" IsRunning="true"></ActivityIndicator>
 
-            
         </VerticalStackLayout>
     </ScrollView>
 
