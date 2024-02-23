@@ -9,4 +9,5 @@ namespace WeatherWise.Interfaces;
 public interface IWeatherService
 {
     Task<CurrentWeatherModel> GetCurrentWeatherAsync(double lat, double lon);
+    Task<ForecastWeatherModel> GetForecastWeatherAsync(double lat, double lon);
 }

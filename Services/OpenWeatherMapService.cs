@@ -47,10 +47,36 @@ class OpenWeatherMapService : IOpenWeatherMapService
         }
         catch (Exception ex)
         {
-            //
+            Debug.WriteLine(ex.StackTrace);
         }
 
         return new CurrentWeatherModel();
+    }
+
+    public async Task<ForecastWeatherModel> GetForecastWeatherAsync(double lat, double lon)
+    {
+        try
+        {
+            HttpResponseMessage response = await _weatherClient.GetAsync($"forecast?lat={lat}&lon={lon}&units=metric&appid={API_KEY}");
+            if (response.IsSuccessStatusCode)
+            {
+                string responseString = await response.Content.ReadAsStringAsync();
+                ForecastWeatherResponse responseObj = JsonSerializer.Deserialize<ForecastWeatherResponse>(responseString);
+                return _mapper.Map<ForecastWeatherModel>(responseObj);
+            }
+            else
+            {
+
+            }
+
+
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.StackTrace);
+        }
+
+        return new ForecastWeatherModel();
     }
 
     public async Task<CurrentGeolocationModel> GetGeolocationAsync(double lat, double lon)

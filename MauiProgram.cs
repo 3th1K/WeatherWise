@@ -38,6 +38,7 @@ namespace WeatherWise
 
             //model dependency
             builder.Services.AddSingleton<CurrentWeatherModel>();
+            builder.Services.AddSingleton<ForecastWeatherModel>();
             builder.Services.AddSingleton<CurrentGeolocationModel>();
 
             //view model dependency

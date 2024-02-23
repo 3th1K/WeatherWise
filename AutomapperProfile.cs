@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using WeatherWise.Models;
 using WeatherWise.Models.OpenWeatherMap;
 
@@ -23,6 +18,20 @@ class AutomapperProfile : Profile
             Sunset = DateTimeOffset.FromUnixTimeSeconds(src.Sys.Sunset).LocalDateTime,
             Visibility = src.Visibility/1000.0,
             WeatherCondition = src.Weather[0].Main
+        });
+
+        CreateMap<ForecastWeatherResponse, ForecastWeatherModel>().ConvertUsing(src => new ForecastWeatherModel()
+        {
+            Forcasts = src.List.Select(x => new CurrentWeatherModel()
+            {
+                CurrentDateTime = DateTimeOffset.FromUnixTimeSeconds(x.Dt).LocalDateTime,
+                CurrentTemperature = x.Main.Temp,
+                FeelsLike = x.Main.FeelsLike,
+                Humidity = x.Main.Humidity,
+                Pressure = x.Main.Pressure,
+                Visibility = x.Visibility / 1000.0,
+                WeatherCondition = x.Weather[0].Main
+            }).ToList()
         });
     }
 }
