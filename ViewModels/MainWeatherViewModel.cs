@@ -14,7 +14,7 @@ public partial class MainWeatherViewModel : ObservableObject
     partial void OnLongitudeChanged(double value)
     {
         Task.Run(GetWeatherReportAsync);
-        Task.Run(GetWeatherForcastAsync);
+        Task.Run(GetWeatherForecastAsync);
     }
 
     [ObservableProperty] private CurrentWeatherModel weatherModel;
@@ -50,15 +50,11 @@ public partial class MainWeatherViewModel : ObservableObject
         }
     }
 
-    public async Task GetWeatherForcastAsync()
+    public async Task GetWeatherForecastAsync()
     {
         try
         {
             WeatherForecastModel = await _openWeatherMapService.GetForecastWeatherAsync(Latitude, Longitude);
-            foreach (var VARIABLE in WeatherForecastModel.Dts)
-            {
-                Debug.Write(VARIABLE.ToString());
-            }
         }
         catch (Exception ex)
         {

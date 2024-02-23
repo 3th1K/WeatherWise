@@ -22,7 +22,7 @@ class AutomapperProfile : Profile
 
         CreateMap<ForecastWeatherResponse, ForecastWeatherModel>().ConvertUsing(src => new ForecastWeatherModel()
         {
-            Forcasts = src.List.Select(x => new CurrentWeatherModel()
+            Forecasts = src.List.Select(x => new CurrentWeatherModel()
             {
                 CurrentDateTime = DateTimeOffset.FromUnixTimeSeconds(x.Dt).LocalDateTime,
                 CurrentTemperature = x.Main.Temp,
