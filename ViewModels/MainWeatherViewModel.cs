@@ -1,5 +1,7 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using WeatherWise.Interfaces;
 using WeatherWise.Models;
 
@@ -60,5 +62,20 @@ public partial class MainWeatherViewModel : ObservableObject
         {
 
         }
+    }
+
+    [RelayCommand]
+    public void SelectForecastDate(Object obj)
+    {
+        List<SingleHourForecast> selectedDateForecast = (List<SingleHourForecast>)obj;
+        WeatherForecastModel.FocusedForecastPerHour = new ObservableCollection<SingleHourForecast>(selectedDateForecast);
+        WeatherForecastModel.FocusedForecast = selectedDateForecast[0];
+    }
+
+    [RelayCommand]
+    public void SelectForecastHour(Object obj)
+    {
+        SingleHourForecast selectedHourForecast = (SingleHourForecast)obj;
+        WeatherForecastModel.FocusedForecast = selectedHourForecast;
     }
 }

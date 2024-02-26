@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System.Collections.ObjectModel;
 using WeatherWise.Models;
 using WeatherWise.Models.OpenWeatherMap;
 
@@ -22,7 +23,7 @@ class AutomapperProfile : Profile
 
         CreateMap<ForecastWeatherResponse, ForecastWeatherModel>().ConvertUsing(src => new ForecastWeatherModel()
         {
-            Forecasts = src.List.Select(x => new CurrentWeatherModel()
+            Forecasts = new ObservableCollection<CurrentWeatherModel>(src.List.Select(x => new CurrentWeatherModel()
             {
                 CurrentDateTime = DateTimeOffset.FromUnixTimeSeconds(x.Dt).LocalDateTime,
                 CurrentTemperature = x.Main.Temp,
@@ -31,7 +32,7 @@ class AutomapperProfile : Profile
                 Pressure = x.Main.Pressure,
                 Visibility = x.Visibility / 1000.0,
                 WeatherCondition = x.Weather[0].Main
-            }).ToList()
+            }).ToList())
         });
     }
 }
