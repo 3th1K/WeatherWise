@@ -5,8 +5,11 @@
              xmlns:m="clr-namespace:WeatherWise.Models"
              x:DataType="vm:MainWeatherViewModel"
              x:Class="WeatherWise.Views.MainWeatherView"
-             x:Name="hey"
              Shell.NavBarIsVisible="False">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -14,7 +17,7 @@
             <RowDefinition Height="25"/>
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="70"/>
-            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="*"/>-->
         </Grid.RowDefinitions>
 
         <Frame Grid.Row="0" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
@@ -138,8 +141,8 @@
                 <Frame Grid.Column="0" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
                     <Frame.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="#839098" Offset="0"/>
-                            <GradientStop Color="#000202" Offset="1"/>
+                            <GradientStop Color="#776BF6" Offset="0"/>
+                            <GradientStop Color="#0867CD" Offset="1"/>
                         </LinearGradientBrush>
                     </Frame.Background>
                     <VerticalStackLayout VerticalOptions="Center">
@@ -157,8 +160,8 @@
                 <Frame Grid.Column="1" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
                     <Frame.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="#839098" Offset="0"/>
-                            <GradientStop Color="#000202" Offset="1"/>
+                            <GradientStop Color="#776BF6" Offset="0"/>
+                            <GradientStop Color="#0867CD" Offset="1"/>
                         </LinearGradientBrush>
                     </Frame.Background>
                     <VerticalStackLayout VerticalOptions="Center">
@@ -176,8 +179,8 @@
                 <Frame Grid.Column="2" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
                     <Frame.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="#839098" Offset="0"/>
-                            <GradientStop Color="#000202" Offset="1"/>
+                            <GradientStop Color="#776BF6" Offset="0"/>
+                            <GradientStop Color="#0867CD" Offset="1"/>
                         </LinearGradientBrush>
                     </Frame.Background>
                     <VerticalStackLayout VerticalOptions="Center">
@@ -195,8 +198,8 @@
                 <Frame Grid.Column="3" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
                     <Frame.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="#839098" Offset="0"/>
-                            <GradientStop Color="#000202" Offset="1"/>
+                            <GradientStop Color="#776BF6" Offset="0"/>
+                            <GradientStop Color="#0867CD" Offset="1"/>
                         </LinearGradientBrush>
                     </Frame.Background>
                     <VerticalStackLayout VerticalOptions="Center">
@@ -214,82 +217,7 @@
             </Grid>
         </Grid>
 
-        <!--<Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            --><!-- Fill with your content --><!--
-            <Frame Grid.Column="0" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#FF5722" Offset="0"/>
-                        <GradientStop Color="#FFC107" Offset="1"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <Label Text="1/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-            </Frame>
-            <Frame Grid.Column="1" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#4CAF50" Offset="0"/>
-                        <GradientStop Color="#CDDC39" Offset="1"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <Label Text="2/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-            </Frame>
-            <Frame Grid.Column="2" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#FF5722" Offset="0"/>
-                        <GradientStop Color="#FFC107" Offset="1"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <Label Text="3/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-            </Frame>
-            <Frame Grid.Column="3" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#4CAF50" Offset="0"/>
-                        <GradientStop Color="#CDDC39" Offset="1"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <Label Text="4/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-            </Frame>
-            <Frame Grid.Column="4" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#FF5722" Offset="0"/>
-                        <GradientStop Color="#FFC107" Offset="1"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <Label Text="5/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-            </Frame>
-            <Frame Grid.Column="5" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#4CAF50" Offset="0"/>
-                        <GradientStop Color="#CDDC39" Offset="1"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <Label Text="6/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-            </Frame>
-            <Frame Grid.Column="6" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#FF5722" Offset="0"/>
-                        <GradientStop Color="#FFC107" Offset="1"/>
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <Label Text="7/12" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-            </Frame>
-            --><!-- Add more frames for additional content --><!--
-        </Grid>-->
+        
 
         <CollectionView Grid.Row="2" 
                         ItemsSource="{Binding WeatherForecastModel.ForecastPerDay}">
@@ -304,7 +232,6 @@
                            x:Name="ForecastDateFrame"
                            Padding="0"
                            HeightRequest="25"
-                           BackgroundColor="Transparent" 
                            BorderColor="Transparent">
                         <Frame.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -328,15 +255,180 @@
 
         <!-- Add more frames for additional content -->
 
-        <Frame Grid.Row="3" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
-            <Frame.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#0B8ECB" Offset="0"/>
-                    <GradientStop Color="#31EAB2" Offset="1"/>
-                </LinearGradientBrush>
-            </Frame.Background>
-            <Label Text="{Binding WeatherForecastModel.FocusedForecast.CurrentHourForecast.CurrentTemperature, StringFormat='{0} *C'}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
-        </Frame>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#16ECAB" Offset="0"/>
+                        <GradientStop Color="#169BEC" Offset="1"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Label Text="{Binding WeatherForecastModel.FocusedForecast.CurrentHourForecast.CurrentDateTime, StringFormat='Weather on {0:dd MMM | hh tt}'}" 
+               VerticalOptions="Start" 
+               HorizontalOptions="CenterAndExpand" 
+               TextColor="White"
+               FontSize="16"/>
+            </Frame>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="0" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#16ECAB" Offset="0"/>
+                            <GradientStop Color="#169BEC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="{Binding WeatherForecastModel.FocusedForecast.CurrentHourForecast.CurrentTemperature, StringFormat='{0} °C'}" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand" 
+                       TextColor="White"
+                       FontSize="30"/>
+                        <Label Text="{Binding WeatherForecastModel.FocusedForecast.CurrentHourForecast.WeatherCondition}"
+                       HorizontalOptions="Center"
+                       TextColor="White"
+                       FontSize="15"/>
+                        <Label Text="{Binding WeatherForecastModel.FocusedForecast.CurrentHourForecast.CurrentDateTime, StringFormat='{0:dd MMM | hh:mm tt}'}"
+                       HorizontalOptions="Center"
+                       TextColor="White"
+                       FontSize="12"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Column="1" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#16ECAB" Offset="0"/>
+                            <GradientStop Color="#169BEC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <VerticalStackLayout VerticalOptions="Center"  Spacing="10">
+                        <Label Text="Wind" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="CenterAndExpand" 
+                               TextColor="White"
+                               FontSize="18"/>
+                        <HorizontalStackLayout HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               Spacing="20">
+                            <VerticalStackLayout>
+                                <Label Text="Speed" 
+                                       VerticalOptions="Center" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       TextColor="White"
+                                       FontSize="10"/>
+                                <Label Text="{Binding WeatherForecastModel.FocusedForecast.CurrentHourForecast.WindSpeed, StringFormat='{0} m/s'}"
+                                       HorizontalOptions="Center"
+                                       TextColor="White"
+                                       FontSize="20"/>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout>
+                                <Label Text="Degree" 
+                                       VerticalOptions="Center" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       TextColor="White"
+                                       FontSize="10"/>
+                                <Label Text="{Binding WeatherForecastModel.FocusedForecast.CurrentHourForecast.WindDeg, StringFormat='{0}°'}"
+                                       HorizontalOptions="Center"
+                                       TextColor="White"
+                                       FontSize="20"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="0" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#776BF6" Offset="0"/>
+                            <GradientStop Color="#0867CD" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="Feels Like" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand" 
+                       TextColor="White"
+                       FontSize="10"/>
+                        <Label Text="{Binding WeatherForecastModel.FocusedForecast.CurrentHourForecast.FeelsLike, StringFormat='{0} °C'}"
+                       HorizontalOptions="Center"
+                       TextColor="White"
+                       FontSize="20"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Column="1" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#776BF6" Offset="0"/>
+                            <GradientStop Color="#0867CD" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="Humidity" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand" 
+                       TextColor="White"
+                       FontSize="10"/>
+                        <Label Text="{Binding WeatherForecastModel.FocusedForecast.CurrentHourForecast.Humidity, StringFormat='{0} %'}"
+                       HorizontalOptions="Center"
+                       TextColor="White"
+                       FontSize="20"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Column="2" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#776BF6" Offset="0"/>
+                            <GradientStop Color="#0867CD" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="Pressure" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand" 
+                       TextColor="White"
+                       FontSize="10"/>
+                        <Label Text="{Binding WeatherForecastModel.FocusedForecast.CurrentHourForecast.Pressure, StringFormat='{0} hPa'}"
+                       HorizontalOptions="Center"
+                       TextColor="White"
+                       FontSize="20"/>
+                    </VerticalStackLayout>
+                </Frame>
+                <Frame Grid.Column="3" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#776BF6" Offset="0"/>
+                            <GradientStop Color="#0867CD" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="Visibility" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand" 
+                       TextColor="White"
+                       FontSize="10"/>
+                        <Label Text="{Binding WeatherForecastModel.FocusedForecast.CurrentHourForecast.Visibility, StringFormat='{0} KM'}"
+                       HorizontalOptions="Center"
+                       TextColor="White"
+                       FontSize="20"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+        </Grid>
 
         <Frame Grid.Row="4" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
             <Frame.Background>
@@ -353,7 +445,6 @@
                         <DataTemplate x:DataType="m:SingleHourForecast">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                                 <Frame CornerRadius="0" 
-                                       BackgroundColor="Transparent" 
                                        BorderColor="Transparent" 
                                        MinimumWidthRequest="80"
                                        HeightRequest="70">
@@ -364,8 +455,8 @@
                                     </Frame.GestureRecognizers>
                                     <Frame.Background>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                            <GradientStop Color="#FF5722" Offset="0"/>
-                                            <GradientStop Color="#FFC107" Offset="1"/>
+                                            <GradientStop Color="{Binding ColorA}" Offset="0"/>
+                                            <GradientStop Color="{Binding ColorB}" Offset="1"/>
                                         </LinearGradientBrush>
                                     </Frame.Background>
                                     <Label Text="{Binding Path=Hour}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="White"/>
@@ -379,14 +470,15 @@
 
 
 
-        <Frame Grid.Row="5" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
+        <!--<Frame Grid.Row="5" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
             <Frame.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#B9A902" Offset="0"/>
                     <GradientStop Color="#F3E876" Offset="1"/>
                 </LinearGradientBrush>
             </Frame.Background>
-        </Frame>
+            <Label Text="Ruko Zara Sabar Karo !!" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+        </Frame>-->
 
         <!-- Add more frames for additional content -->
     </Grid>

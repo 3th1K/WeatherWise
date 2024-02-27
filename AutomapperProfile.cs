@@ -31,7 +31,10 @@ class AutomapperProfile : Profile
                 Humidity = x.Main.Humidity,
                 Pressure = x.Main.Pressure,
                 Visibility = x.Visibility / 1000.0,
-                WeatherCondition = x.Weather[0].Main
+                WeatherCondition = x.Weather[0].Main,
+                Pod = x.Sys.Pod,
+                WindSpeed = x.Wind.Speed,
+                WindDeg = x.Wind.Deg
             }).ToList())
         });
     }

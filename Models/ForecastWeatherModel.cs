@@ -33,6 +33,9 @@ public class SingleDayForecast
         {
             ForecastsPerHour.Add(new SingleHourForecast()
             {
+                IsDayTime = forecast.Pod == "d" ? true : false,
+                ColorA = forecast.Pod == "d" ? Color.FromArgb("#F3D7E9") : Color.FromArgb("#686D6D"),
+                ColorB = forecast.Pod == "d" ? Color.FromArgb("#F3054D") : Color.FromArgb("#242626"),
                 Hour = ConvertToAmpm(forecast.CurrentDateTime.Hour),
                 CurrentHourForecast = forecast
             });
@@ -52,5 +55,8 @@ public class SingleDayForecast
 public class SingleHourForecast
 {
     public string Hour { get; set; }
+    public bool IsDayTime { get; set; }
+    public Color ColorA { get; set; }
+    public Color ColorB { get; set; }
     public CurrentWeatherModel CurrentHourForecast { get; set; }
 }

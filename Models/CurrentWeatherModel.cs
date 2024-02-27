@@ -13,5 +13,7 @@ public partial class CurrentWeatherModel : ObservableObject
     [ObservableProperty] private double humidity;
     [ObservableProperty] private int pressure;
     [ObservableProperty] private double visibility;
-
+    [ObservableProperty] private string pod;
+    [ObservableProperty] private double? windSpeed;
+    [ObservableProperty] private double? windDeg;
 }

@@ -29,7 +29,7 @@ public partial class MainWeatherViewModel : ObservableObject
     public MainWeatherViewModel(
         CurrentWeatherModel currentWeatherModel,
         IOpenWeatherMapService openWeatherMapService,
-        CurrentGeolocationModel currentGeolocationModel, 
+        CurrentGeolocationModel currentGeolocationModel,
         ForecastWeatherModel weatherForecastModel)
     {
         weatherModel = currentWeatherModel;
@@ -57,6 +57,9 @@ public partial class MainWeatherViewModel : ObservableObject
         try
         {
             WeatherForecastModel = await _openWeatherMapService.GetForecastWeatherAsync(Latitude, Longitude);
+            WeatherForecastModel.FocusedForecast = WeatherForecastModel.ForecastPerDay[0].ForecastsPerHour[0];
+            WeatherForecastModel.FocusedForecastPerHour = new ObservableCollection<SingleHourForecast>(WeatherForecastModel.ForecastPerDay[0].ForecastsPerHour);
+
         }
         catch (Exception ex)
         {
