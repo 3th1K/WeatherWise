@@ -20,6 +20,7 @@
             <!--<RowDefinition Height="*"/>-->
         </Grid.RowDefinitions>
 
+        <!-- Location Heading -->
         <Frame Grid.Row="0" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
             <Frame.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -49,6 +50,7 @@
             </HorizontalStackLayout>
         </Frame>
 
+        <!-- Current Weather -->
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
@@ -217,8 +219,7 @@
             </Grid>
         </Grid>
 
-        
-
+        <!-- List of Days -->
         <CollectionView Grid.Row="2" 
                         ItemsSource="{Binding WeatherForecastModel.ForecastPerDay}">
             <CollectionView.ItemsLayout>
@@ -253,8 +254,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!-- Add more frames for additional content -->
-
+        <!-- Focused Forecast -->
         <Grid Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
@@ -430,6 +430,7 @@
             </Grid>
         </Grid>
 
+        <!-- List of Hours -->
         <Frame Grid.Row="4" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
             <Frame.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -468,8 +469,7 @@
             </ScrollView>
         </Frame>
 
-
-
+        <!-- Extra Features Coming Soon -->
         <!--<Frame Grid.Row="5" CornerRadius="0" Padding="0" BackgroundColor="Transparent" BorderColor="Transparent">
             <Frame.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -479,8 +479,6 @@
             </Frame.Background>
             <Label Text="Ruko Zara Sabar Karo !!" VerticalOptions="Center" HorizontalOptions="Center"></Label>
         </Frame>-->
-
-        <!-- Add more frames for additional content -->
     </Grid>
 
 
